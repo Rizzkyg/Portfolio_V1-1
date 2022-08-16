@@ -1,0 +1,333 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* PROPERTI KUSTOM, BISA DIEDIT SEMAUNYA */
+
+:root {
+    --ff-primary: 'Source Sans Pro', sans-serif;
+    --ff-secondary: 'Source Code Pro', monospace;
+    
+    --fw-reg: 300;
+    --fw-bold: 900;
+    
+    --clr-light: #fff;
+    --clr-dark: #303030;
+    --clr-accent: #16e0bd;
+    
+    --fs-h1: 3rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+
+    --bs: 0.25em 0.25em 0.75em rgba(0,0,0.25),
+          0.125em 0.125em 0.25em rgba(0,0,0,.15);
+}
+
+@media (min-width: 800px) {
+    :root {
+        --fs-h1: 4.5rem;
+        --fs-h2: 3.75rem;
+        --fs-h3: 1.5rem;
+        --fs-body: 1.125rem;
+    }
+}
+
+/* STYLE GENERAL */
+
+body {
+    background: var(--clr-light);
+    color: var(--clr-dark);
+    margin: 0;
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+}
+
+section {
+    padding: 5em 2em;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+strong { font-weight: var(--fw-bold)}
+
+
+/* BAGIAN TIPOGRAPHY */
+
+h1,
+h2,
+h3 {
+    line-height: 1.1;
+    margin: 0;
+}
+
+h1 { font-size: var(--fs-h1) }
+h2 { font-size: var(--fs-h2) }
+h3 { font-size: var(--fs-h3) }
+
+
+.section--title {
+    margin-bottom: .25em;
+}
+
+.section--title--intro{
+    font-weight: var(--fw-reg);
+}
+
+.section--title--intro strong {
+    display: block;
+}
+
+.section--subtitle {
+    margin: 0;
+    font-size: var(--fs-h3);
+}
+
+.section--subtitle--intro{
+    background-image:
+    linear-gradient(
+      to top right, 
+      red, #f06d06
+    );
+    padding: .25em 1em;
+    font-family: var(--ff-secondary);
+    margin-bottom: 5em;
+    color: white;
+}
+
+.section--title--services {
+    background-image:
+    linear-gradient(
+      to top right, 
+      red, #f06d06
+    );
+    padding: .25em 1em;
+    margin-bottom: 1em;
+    color: white;
+}
+
+.section--title--about{
+    background-image:
+    linear-gradient(
+      to top right, 
+      red, #f06d06
+    );
+    padding: .25em 1em;
+    margin-bottom: 1em;
+    color: white;
+}
+
+.section--title--mywork{
+    background-image:
+    linear-gradient(
+      to top right, 
+      red, #f06d06
+    );
+    padding: .25em 1em;
+    margin-bottom: 1em;
+    margin-top: 2em;
+    color: white;
+}
+
+/* BAGIAN HEADER */
+
+nav { display: none; }
+
+
+/* BAGIAN INTRO */
+
+.intro{
+    position: relative;
+}
+
+.intro--img{
+    box-shadow: var(--bs);
+}
+
+.section--subtitle--intro{
+    display: inline-block;
+}
+
+@media (min-width: 600px){
+    .intro{
+        display: grid;
+        width: min-content;
+        margin: 0 auto;
+        grid-column-gap: 1em;
+        grid-template-areas: 
+        "img title" 
+        "img subtitle";
+        grid-template-columns: min-content max-content;
+    }
+
+    .intro--img{
+        grid-area: img;
+        min-width: 250px;
+        min-height: 250px;
+        position: relative;
+        z-index: 5;
+    }
+
+    .section--subtitle--intro{
+        align-self: start;
+        grid-column: -1 / 1;
+        grid-row: 2;
+        text-align: right;
+        position: relative;
+        left: -1.5em;
+        width: calc(100% + 1.5em);
+        z-index: 1;
+    }
+
+    .section--title--services{
+        text-align: center;
+        position: relative;
+        align-self: start;
+        grid-column: -1 / 1;
+    }
+
+    .section--title--about{
+        text-align: center;
+        position: relative;
+        align-self: start;
+        grid-column: -1 / 1;
+        margin-top: -80px;
+    }
+
+    .who--img{
+        grid-area: img;
+        width: 350px;
+        height: 350px;
+        position: relative;
+        margin-right: 15px;
+        margin-left: 2px;
+        margin-top: 10px;
+        text-align: left;
+        float: left;
+        text-indent:1em;  
+        text-align:justify;
+    }
+
+    .section--title--mywork{
+        text-align: center;
+        position: relative;
+        align-self: start;
+        grid-column: -1 / 1;
+        margin-top: -30px;
+        
+    }
+
+    .portfolio--img{
+        width: 250px;
+        height: 250px;
+        text-align: center;
+        margin-left: 40px;
+        margin-bottom: 20px;
+        padding: 3px;
+        float: left;
+        }
+    
+    
+}
+
+/* BAGIAN FOOTER */
+
+@media (min-width: 600px){
+    .footer--link{
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: red;
+        margin-top: 30px;
+        color: white;
+        float: right;
+        text-align: center;
+        padding: 1rem;
+        background: linear-gradient(
+        to top right, 
+        red, #f06d06
+        );;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        text-decoration: none;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        
+    }
+
+    .social-list {
+        display: flex;
+        padding: 1rem;
+        align-items: center;
+        justify-content: space-around;
+        margin-right: 0;
+        text-decoration: none;
+    }
+
+}
+
+.container{
+    height:100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.btn {
+    margin-top: calc(50% + 1100px);
+    position: relative;
+    display: inline-block;
+    width: 277px;
+    height: 50px;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 60px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: transparent;
+    cursor: pointer;
+    text-decoration:none;
+    font-family: 'Roboto', sans-serif;
+    font-weight:900;
+    font-size:17px;
+    letter-spacing: 0.045em;
+    
+}
+
+.btn svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.btn svg rect {
+    stroke: #EC0033;
+    stroke-width: 4;
+    stroke-dasharray: 353, 0;
+    stroke-dashoffset: 0;
+    -webkit-transition: all 600ms ease;
+    transition: all 600ms ease;
+}
+
+.btn span{
+  background: rgb(212, 103, 52);
+  background: -moz-linear-gradient(left,  rgb(216, 47, 47) 0%, rgb(211, 158, 61)100%);
+  background: -webkit-linear-gradient(left,  rgb(240, 56, 56) 0%,rgb(228, 163, 110) 100%);
+  background: linear-gradient(to right,  rgb(230, 49, 49) 0%,rgb(230, 187, 69) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff8282', endColorstr='#e178ed',GradientType=1 );
+  
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn:hover svg rect {
+    stroke-width: 4;
+    stroke-dasharray: 196, 543;
+    stroke-dashoffset: 437;
+}
